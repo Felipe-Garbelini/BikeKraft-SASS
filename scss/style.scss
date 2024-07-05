@@ -1,0 +1,17 @@
+@function grid($colunas,$total: 12){
+  @return round(($colunas / $total) * 100%);  
+}
+
+p{
+  font-size: grid(8);
+}
+
+$container: 960;
+$gutter: 20;
+$colunas: 12;
+@for $i from 1 through $colunas {
+  $width: $container / $colunas * $i - $gutter;
+  .item-#{$i} {
+    width: $width + px;
+  }
+}
